@@ -1,0 +1,73 @@
+four51.app.factory('Product', ['$resource', '$451', 'Security', function($resource, $451, Security) {
+	//var _cacheName = '451Cache.Product.' + $451.apiName;
+	function _then(fn, data) {
+		if (angular.isFunction(fn))
+			fn(data);
+	}
+
+	function _extend(product) {
+		product.ViewName = product.ViewName || 'default';
+		angular.forEach(product.Specs, function(spec) {
+			if (spec.ControlType == 'File' && spec.File && spec.File.Url.indexOf('auth') == -1)
+				spec.File.Url += "&auth=" + Security.auth();
+		});
+
+		angular.forEach(product.StaticSpecGroups, function(group) {
+			angular.forEach(group.Specs, function(spec) {
+				if (spec.FileURL && spec.FileURL.indexOf('auth') == -1)
+					spec.FileURL += "&auth=" + Security.auth();
+			});
+		});
+
+        if(product.StaticSpecGroups){
+            product.StaticSpecLength = 0;
+            product.StaticSpecGroups.EvenSpecGroups = [];
+            product.StaticSpecGroups.OddSpecGroups = [];
+            angular.forEach(product.StaticSpecGroups, function(g){
+                var visible = false;
+                for (var i in g.Specs) {
+                    if (g.Specs[i].VisibleToCustomer) {
+                        visible = true;
+                    }
+                }
+                if (visible) {
+                    product.StaticSpecGroups.EvenSpecGroups.length == product.StaticSpecGroups.OddSpecGroups.length ? product.StaticSpecGroups.EvenSpecGroups.push(g) : product.StaticSpecGroups.OddSpecGroups.push(g);
+                    product.StaticSpecLength++;
+                }
+            });
+        }
+	}
+
+     var _get = function(param, success) {
+	     //var product = store.get(_cacheName + param);
+	     //product ? (function() { _extend(product);	_then(success, product); })() :
+		 var product = $resource($451.api('Products/:interopID'), { interopID: '@ID' }).get({ interopID: param }).$promise.then(function(product) {
+				_extend(product);
+				//store.set(_cacheName + product.InteropID, product);
+				_then(success, product);
+	         });
+    }
+
+    var _search = function(categoryInteropID, searchTerm, relatedProductsGroupID, success) {
+        if(!categoryInteropID && !searchTerm && !relatedProductsGroupID) return null;
+
+        var criteria = {
+            'CategoryInteropID': categoryInteropID,
+            'SearchTerms': searchTerm ? searchTerm : '',
+			'RelatedProductGroupID': relatedProductsGroupID
+        };
+	    //var cacheID = '451Cache.Products.' + criteria.CategoryInteropID + criteria.SearchTerms.replace(/ /g, "");
+		//var products = store.get(cacheID);
+	    //products ? _then(success, products) :
+	    var products = $resource($451.api('Products')).query(criteria).$promise.then(function(products) {
+		        //store.set(cacheID, products);
+	            angular.forEach(products, _extend);
+				_then(success, products);
+	        });
+    }
+	
+	return {
+        get: _get,
+        search: _search
+    }
+}]);

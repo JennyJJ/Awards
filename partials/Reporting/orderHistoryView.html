@@ -1,0 +1,69 @@
+<section class="container">
+    <loadingindicator ng-show="loadingIndicator" title="Please wait while we fetch your order"></loadingindicator>
+    <div class="hidden-print">
+        <nav class="nav">
+            <ul>
+                <li><span class="text-primary">{{order.Type}} Order<span ng-show="order.ExternalID"> ID: </span>{{order.ExternalID}}</span></li>
+                <li class="pull-right" ng-click="onPrint()"><span><i class="fa fa-print" rel="tooltip" title="Print"></i></span></li>
+            </ul>
+        </nav>
+        <div class="col-md-3 col-md-offset-1 col-md-push-8">
+            <div class="row">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Order Details
+                        </h3>
+                    </div>
+                    <div class="panel-body text-left">
+                        <orderhistorydetails></orderhistorydetails>
+                        <orderhistorysummary ng-if="!(user.Permissions.contains('HidePricing'))"></orderhistorysummary>
+                    </div>
+                    <div class="panel-footer" ng-if="order.FromUserID == user.ID">
+                        <button ng-disabled="currentOrder" class="btn btn-primary pull-right" ng-click="repeatOrder()">
+                            <i ng-show="currentOrder" class="fa fa-warning"></i>
+                            Repeat Order
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-pull-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title panel-primary">
+                        {{order.LineItems.length}} item{{order.LineItems.length > 1 ? 's' : ''}} in this order
+                    </h3>
+                </div>
+                <lineitemhistorygrid />
+                <div class="panel-footer" ng-if="order.FromUserID == user.ID">
+                    <loadingindicator ng-show="displayLoadingIndicator" />
+                   <div class="form-group view-form-icon">
+                        <div class="input-group">
+                            <input type="text" ng-model="order.FavoriteName" placeholder="Favorite Name" class="form-control" autocomplete="off" />
+                            <i class="fa fa-star"></i>
+                            <span class="input-group-btn">
+                                <button type="button" ng-click="saveFavorite()" class="btn btn-info">Save as Favorite</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="order.Approvals" class="panel panel-default approval-rule-status-summary">
+                <div class="panel-heading">
+                    <h3 class="panel-title panel-primary">Approvals</h3>
+                </div>
+                <div class="panel-body">
+                    <approval ng-show="order.Status == 'AwaitingApproval' && (order.UserCanApprove || user.Permissions.contains('ApproveAllOrders'))" order="order"/>
+                    <approvalrulelist order="order" />
+                </div>
+            </div>
+        </div>
+        <div class="navbar-fixed-bottom">
+            <loadingindicator ng-show="displayLoadingIndicator" />
+            <div class="view-action-message alert-success" ng-show="saveFavorite">Your order has been saved as a Favorite.</div>
+        </div>
+    </div>
+    <orderprint class="visible-print" />
+</section>
