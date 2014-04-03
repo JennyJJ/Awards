@@ -7,7 +7,7 @@ Template: Howdy
 
 #background
 {
-    background:url(img/logo.png);
+    background:url(../img/logo.png);
     background-size:750px 750px;
     background-repeat:no-repeat;
 }
