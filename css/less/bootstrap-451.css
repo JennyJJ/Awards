@@ -7279,3 +7279,8 @@ table[datepicker] {
   padding-bottom: 10px;
   border-bottom: 1px solid #dddddd;
 }
+body {
+  background: url(../img/logo.png);
+  background-size: 750px 750px;
+  background-repeat: no-repeat;
+}
