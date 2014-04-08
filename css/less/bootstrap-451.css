@@ -6713,7 +6713,7 @@ select.ng-invalid:invalid:invalid:focus {
   top: 0;
   overflow: hidden;
   padding: 0 5px;
-  background: url(../css/images/orderCloud.jpg) no-repeat center center fixed;
+  background: url(../images/main-background.jpg) no-repeat top center #000000;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -7278,4 +7278,12 @@ table[datepicker] {
   margin-bottom: 30px;
   padding-bottom: 10px;
   border-bottom: 1px solid #dddddd;
+}
+label,
+.error {
+  color: #ffffff;
+}
+body {
+  background: url(../images/main-background.jpg) no-repeat top center #000000;
+  background-repeat: no-repeat;
 }
