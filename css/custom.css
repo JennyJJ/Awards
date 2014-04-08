@@ -4,3 +4,28 @@ Theme name: My SPA Theme
 Version: 1.0
 Template: Howdy
 */
+
+.panel-footer {
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0px;
+}
+
+.ng-pristine .ng-invalid .ng-invalid-required hr {
+    border: none;
+    border-color: transparent;
+}
+
+.wooMessage, .wooMessage h3 {
+    color: #ffffff !important;
+}
+
+.prodImg {
+    flaot: right;
+}
+
+#address_edit hr {
+    color: transparent;
+    border-color: transparent;
+    background-color: transparent;
+}

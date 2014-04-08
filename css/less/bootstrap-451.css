@@ -6713,7 +6713,7 @@ select.ng-invalid:invalid:invalid:focus {
   top: 0;
   overflow: hidden;
   padding: 0 5px;
-  background: url(../images/main-background.jpg) no-repeat center #000000;
+  background: url(../images/main-background.jpg) no-repeat top center #000000;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -7284,6 +7284,6 @@ label,
   color: #ffffff;
 }
 body {
-  background: url(../images/main-background.jpg) no-repeat center #000000;
+  background: url(../images/main-background.jpg) no-repeat top center #000000;
   background-repeat: no-repeat;
 }
