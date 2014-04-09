@@ -8,26 +8,25 @@
 -moz-box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);
 box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);">
         <loadingindicator title="Please wait while we lookup your award code" ng-show="gettingAward" />
-        <img width="100%" src="css/images/logo.png" />
-        <form name="giftcard_redeem" ng-submit="redeemGiftCard()" class="gift-card-redemption-view">
-            <div ng-hide="Order.BudgetAccountID" class="form-group view-form-icon">
-                <div class="input-group">
-                    <label ng-show="giftcard.Code" >Enter your award code to reveal your prize...</label>
-                    <input class="form-control" type="text" ng-model="giftcard.Code" placeholder="Award Code" autocomplete="off"></input>
-                    <i class="fa fa-dollar"></i>
-                    <span class="input-group-btn">
-                        <button type="submit" class="btn btn-success"><i class="fa fa-check"></i></button>
-                    </span>
+        <div ng-show="!Order.BudgetAccountID">
+            <img width="100%" src="css/images/logo.png" />
+            <form name="giftcard_redeem" ng-submit="redeemGiftCard()" class="gift-card-redemption-view">
+                <div ng-hide="Order.BudgetAccountID" class="form-group view-form-icon">
+                    <div class="input-group">
+                        <label ng-show="giftcard.Code" >Enter your award code to reveal your prize...</label>
+                        <input class="form-control" type="text" ng-model="giftcard.Code" placeholder="Award Code" autocomplete="off"></input>
+                        <i class="fa fa-dollar"></i>
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i></button>
+                        </span>
+                    </div>
                 </div>
-            </div>
-        </form>
-
-
-
+            </form>
+        </div>
         <div ng-show="error" class="error">
             {{error}}
         </div>
-        <!--product view-->
+
         <div class="wooMessage" ng-show="Order.BudgetAccountID">
             <span class="col-md-8"><h3>Awesome!</h3>
             <p>You've been awarded the {{LineItem.Product.Name}}</p></span>
@@ -40,12 +39,9 @@ box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);">
             <addressinput user="user" address="Order.ShipAddress" />
         </div>
 
-        <!--order view-->
         <div class="wooMessage" ng-show="Order.Status == 'Open'">
             <span class="col-md-12"><h3 class="wooMessage" style="text-align: center;">Congratulations!</h3>
             <p style="text-align: center;" >You're order has been submitted and will be delivered to the address you specified.</p></span>
-        </div>
-
         </div>
     </div>
 </section>
