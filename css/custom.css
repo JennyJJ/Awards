@@ -16,10 +16,6 @@ Template: Howdy
     border-color: transparent;
 }
 
-.wooMessage, .wooMessage h3 {
-    color: #ffffff !important;
-}
-
 .prodImg {
     flaot: right;
 }
@@ -28,4 +24,9 @@ Template: Howdy
     color: transparent;
     border-color: transparent;
     background-color: transparent;
+}
+
+body{
+    background-image:url('http://www.four51.com/Themes/Custom/509c0d4d-6e6d-401d-9597-1d9d2d342a56/D82Resource/images/Website-Graphic_610_004.jpg') !important;
+    background-size:cover;
 }

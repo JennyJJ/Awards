@@ -2,7 +2,7 @@
     <form name="addressEdit">
         <div class="row">
             <div class="col-sm-6 view-form-icon">
-                <div>
+                <div ng-hide="true">
                     <label class="required">Address Name</label>
                     <input name="addressname" class="form-control" type="text" ng-model="address.AddressName" placeholder="Address Name" autocomplete="off" required />
                     <i class="fa fa-edit"></i>
@@ -18,20 +18,20 @@
                     <i class="fa fa-user"></i>
                 </div>
                 <div>
-                    <label ng-show="address.CompanyName">Company Name</label>
-                    <input name="companyname" class="form-control" type="text" ng-model="address.CompanyName" autocomplete="off" placeholder="Company Name" />
-                    <i class="fa fa-user"></i>
+                    <label ng-show="address.Phone">Phone</label>
+                    <input name="phone" class="form-control" type="text" ng-model="address.Phone" autocomplete="off" ui-mask="(999)999-9999" />
+                    <i class="fa fa-phone"></i>
                 </div>
                 <div>
-                    <label ng-show="address.Phone">Phone</label>
-                    <input name="phone" class="form-control" type="text" ng-model="address.Phone" placeholder="Phone" autocomplete="off" />
-                    <i class="fa fa-phone"></i>
+                    <label ng-show="user.Email && user.Email != ''">Email</label>
+                    <input name="Email" class="form-control" type="email" ng-model="user.Email" placeholder="Email" autocomplete="off" />
+                    <i class="fa fa-envelope"></i>
                 </div>
             </div>
             <div class="col-sm-6 view-form-icon">
                 <div>
                     <label class="required">Address Line 1</label>
-                    <input name="street1" class="form-control" type="text" ng-model="address.Street1" placeholder="Address Line 1" autocomplete="off" required />
+                    <input ng-blur="setAddressName()" name="street1" class="form-control" type="text" ng-model="address.Street1" placeholder="Address Line 1" autocomplete="off" required />
                     <i class="fa fa-map-marker"></i>
                 </div>
                 <div>
@@ -60,17 +60,12 @@
                     <input name="zip" class="form-control" type="text" ng-model="address.Zip" placeholder="Zip" autocomplete="off" ng-required="hasStates()" />
                     <i class="fa fa-map-marker"></i>
                 </div>
-                <div ng-class="{'view-form-select': !address.Country, '': address.Country }">
-                    <label class="required">Country</label>
-                    <select name="country" class="form-control" ng-options="country.value as country.label for country in countries" ng-model="address.Country" placeholder="Country" required />
-                    <i class="fa fa-globe"></i>
-                </div>
             </div>
         </div>
         <hr />
         <div class="panel-footer">
             <span class="alert alert-warning" ng-show="objectExists">An address with that name already exists. Please specify another name</span><br />
-            <button ng-if="user.Permissions.contains('CreateShipToAddress')" class="btn btn-primary pull-right" type="button" ng-click="save()" ng-disabled="addressEdit.$invalid" id="451_btn_user">
+            <button ng-if="user.Permissions.contains('CreateShipToAddress')" class="btn btn-primary pull-right" type="button" ng-click="setEmail();save();" ng-disabled="addressEdit.$invalid" id="451_btn_user">
                 <i ng-show="addressEdit.$invalid" class="fa fa-warning"></i>
                 Submit
             </button>
