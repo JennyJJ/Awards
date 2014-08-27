@@ -13,9 +13,8 @@ box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);">
             <form name="giftcard_redeem" ng-submit="redeemGiftCard()" class="gift-card-redemption-view">
                 <div ng-hide="Order.BudgetAccountID" class="form-group view-form-icon">
                     <div class="input-group">
-                        <label ng-show="giftcard.Code" >Enter your award code to reveal your prize...</label>
+                        <label style="color:black;" ng-show="giftcard.Code" >Enter your award code to reveal your prize...</label>
                         <input class="form-control" type="text" ng-model="giftcard.Code" placeholder="Award Code" autocomplete="off"></input>
-                        <i class="fa fa-dollar"></i>
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-success"><i class="fa fa-check"></i></button>
                         </span>
@@ -23,14 +22,15 @@ box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);">
                 </div>
             </form>
         </div>
-        <div ng-show="error" class="error">
+        <div style="color:black;" ng-show="error" class="error">
             {{error}}
         </div>
 
-        <div class="wooMessage" ng-show="Order.BudgetAccountID">
+        <div style="background-color: white; border: 1px solid rgba(85, 85, 85, 0.7); border-radius: 5px;" class="wooMessage" ng-show="Order.BudgetAccountID">
             <span class="col-md-8"><h3>Awesome!</h3>
-            <p>You've been awarded the {{LineItem.Product.Name}}</p></span>
+            <p>You've been awarded the <strong>{{LineItem.Product.Name}}</strong><br/><br/><p ng-bind-html="LineItem.Product.Description"></p></p></span>
             <img class="prodImg col-md-4" ng-src="{{LineItem.Product.SmallImageUrl}}" />
+            <!--<span><p></p></span>-->
             <hr width="100%" height="60" style="border-color: transparent;">
         </div>
 

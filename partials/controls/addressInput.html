@@ -8,23 +8,23 @@
                     <i class="fa fa-edit"></i>
                 </div>
                 <div>
-                    <label style="color:black;" ng-show="address.FirstName || address.IsBilling" ng-class="{required: address.IsBilling}">First Name</label>
-                    <input name="firstname" class="form-control" type="text" ng-model="address.FirstName" placeholder="First Name" autocomplete="off" ng-required="address.IsBilling" />
+                    <label class="required" ng-class="{required: address.IsBilling}">First Name</label>
+                    <input name="firstname" class="form-control" type="text" ng-model="address.FirstName" placeholder="First Name" autocomplete="off" required />
                     <i class="fa fa-user"></i>
                 </div>
                 <div>
-                    <label style="color:black;" ng-show="address.LastName || address.IsBilling" ng-class="{required: address.IsBilling}">Last Name</label>
-                    <input name="lastname" class="form-control" type="text" ng-model="address.LastName" placeholder="Last Name" autocomplete="off" ng-required="address.IsBilling" />
+                    <label class="required" ng-class="{required: address.IsBilling}">Last Name</label>
+                    <input name="lastname" class="form-control" type="text" ng-model="address.LastName" placeholder="Last Name" autocomplete="off" required />
                     <i class="fa fa-user"></i>
                 </div>
                 <div>
-                    <label style="color:black;" ng-show="address.Phone">Phone</label>
-                    <input name="phone" class="form-control" type="text" ng-model="address.Phone" autocomplete="off" ui-mask="(999)999-9999" />
+                    <label class="required">Phone</label>
+                    <input name="phone" class="form-control" type="text" ng-model="address.Phone" autocomplete="off" ui-mask="(999)999-9999" required />
                     <i class="fa fa-phone"></i>
                 </div>
                 <div>
-                    <label style="color:black;" ng-show="user.Email && user.Email != ''">Email</label>
-                    <input name="Email" class="form-control" type="email" ng-model="user.Email" placeholder="Email" autocomplete="off" />
+                    <label class="required">Email</label>
+                    <input name="Email" class="form-control" type="email" ng-model="user.Email" placeholder="Email" autocomplete="off" required />
                     <i class="fa fa-envelope"></i>
                 </div>
             </div>
