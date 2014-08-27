@@ -25,7 +25,6 @@ box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);">
         <div style="color:black;" ng-show="error" class="error">
             {{error}}
         </div>
-
         <div style="background-color: white; border: 1px solid rgba(85, 85, 85, 0.7); border-radius: 5px;" class="wooMessage" ng-show="Order.BudgetAccountID">
             <span class="col-md-8"><h3>Awesome!</h3>
             <p>You've been awarded the <strong>{{LineItem.Product.Name}}</strong><br/><br/><p ng-bind-html="LineItem.Product.Description"></p></p></span>
@@ -33,7 +32,13 @@ box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);">
             <!--<span><p></p></span>-->
             <hr width="100%" height="60" style="border-color: transparent;">
         </div>
-
+        <div ng-hide="Order.Status == 'Open'">
+            <div class="form-group" ng-repeat="s in LineItem.Specs | onproperty:[{Property: 'CanSetForLineItem', Value: true}, {Property: 'DefinesVariant', Value: true}]">
+                <customfilefield customfield="s" ng-if="s.ControlType == 'File'"></customfilefield>
+                <customtextfield customfield="s" ng-if="s.ControlType == 'Text'"></customtextfield>
+                <customselectionfield change="specChanged" customfield="s" ng-if="s.ControlType == 'Selection'"></customselectionfield>
+            </div>
+        </div>
         <div class="wooMessage" ng-show="Order.BudgetAccountID && Order.Status != 'Open'">
             <h3>Please enter the address where you'd like your prize to be delivered</h3>
             <addressinput user="user" address="Order.ShipAddress" />
