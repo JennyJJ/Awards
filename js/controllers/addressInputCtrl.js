@@ -4,6 +4,7 @@ four51.app.controller('AddressInputCtrl', ['$scope', '$rootScope', '$location', 
         $scope.setAddressName = function(){
             if($scope.address.Street1){
                 $scope.address.AddressName = $scope.address.Street1;
+                $scope.user.ShipAddressName = $scope.address.Street1;
             }
         };
 

@@ -13,7 +13,7 @@ box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);">
             <form name="giftcard_redeem" ng-submit="redeemGiftCard()" class="gift-card-redemption-view">
                 <div ng-hide="Order.BudgetAccountID" class="form-group view-form-icon">
                     <div class="input-group">
-                        <label style="color:black;" ng-show="giftcard.Code" >Enter your award code to reveal your prize...</label>
+                        <label style="color:black;" >Enter your award code to reveal your prize...</label>
                         <input class="form-control" type="text" ng-model="giftcard.Code" placeholder="Award Code" autocomplete="off"></input>
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-success"><i class="fa fa-check"></i></button>
@@ -26,11 +26,17 @@ box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);">
             {{error}}
         </div>
         <div style="background-color: white; border: 1px solid rgba(85, 85, 85, 0.7); border-radius: 5px;" class="wooMessage" ng-show="Order.BudgetAccountID">
-            <span class="col-md-8"><h3>Awesome!</h3>
-            <p>You've been awarded the <strong>{{LineItem.Product.Name}}</strong><br/><br/><p ng-bind-html="LineItem.Product.Description"></p></p></span>
-            <img class="prodImg col-md-4" ng-src="{{LineItem.Product.SmallImageUrl}}" />
-            <!--<span><p></p></span>-->
-            <hr width="100%" height="60" style="border-color: transparent;">
+            <div style="padding:10px" class="row">
+                <span class="col-xs-8 col-sm-8 col-md-8 col-lg-8"><h3>Awesome!</h3>
+                    <p>You've been awarded the <strong>{{LineItem.Product.Name}}</strong></p>
+                </span>
+                <img class="prodImg col-xs-4 col-sm-4 col-md-4 col-lg-4" ng-src="{{LineItem.Product.SmallImageUrl}}" />
+                <span class="col-xs-12">
+                    <p ng-bind-html="LineItem.Product.Description"></p>
+                </span>
+                <!--<span><p></p></span>-->
+                <hr width="100%" height="60" style="border-color: transparent;">
+            </div>
         </div>
         <div ng-hide="Order.Status == 'Open'">
             <div class="form-group" ng-repeat="s in LineItem.Specs | onproperty:[{Property: 'CanSetForLineItem', Value: true}, {Property: 'DefinesVariant', Value: true}]">
@@ -46,7 +52,8 @@ box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);">
 
         <div class="wooMessage" ng-show="Order.Status == 'Open'">
             <span class="col-md-12"><h3 class="wooMessage" style="text-align: center;">Congratulations!</h3>
-            <p style="text-align: center;" >You're order has been submitted and will be delivered to the address you specified.</p></span>
+            <p style="text-align: center;" >You will receive an email confirming your delivery at: {{Order.ExternalOrderDetailRecipients}}. Your prize will be
+                delivered to: {{user.ShipAddressName}}</p></span>
         </div>
     </div>
 </section>

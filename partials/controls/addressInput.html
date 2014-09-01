@@ -1,7 +1,7 @@
 <div id="address_edit">
     <form name="addressEdit">
         <div class="row">
-            <div class="col-sm-6 view-form-icon">
+            <div class="col-xs-12 col-sm-6 view-form-icon">
                 <div ng-hide="true">
                     <label class="required">Address Name</label>
                     <input name="addressname" class="form-control" type="text" ng-model="address.AddressName" placeholder="Address Name" autocomplete="off" required />
@@ -28,7 +28,7 @@
                     <i class="fa fa-envelope"></i>
                 </div>
             </div>
-            <div class="col-sm-6 view-form-icon">
+            <div class="col-xs-12 col-sm-6 view-form-icon">
                 <div>
                     <label class="required">Address Line 1</label>
                     <input ng-blur="setAddressName()" name="street1" class="form-control" type="text" ng-model="address.Street1" placeholder="Address Line 1" autocomplete="off" required />
@@ -63,12 +63,14 @@
             </div>
         </div>
         <hr />
-        <div class="panel-footer">
-            <span class="alert alert-warning" ng-show="objectExists">An address with that name already exists. Please specify another name</span><br />
-            <button ng-if="user.Permissions.contains('CreateShipToAddress')" class="btn btn-primary pull-right" type="button" ng-click="setEmail();save();" ng-disabled="addressEdit.$invalid || ($parent.$parent.LineItem.Specs.Color.Value == null && $parent.$parent.LineItem.Product.Name == 'Polo Shirt')" id="451_btn_user">
-                <i ng-show="addressEdit.$invalid || ($parent.$parent.LineItem.Specs.Color.Value == null && $parent.$parent.LineItem.Product.Name == 'Polo Shirt')" class="fa fa-warning"></i>
-                Submit
-            </button>
+        <div class="row">
+            <div class="panel-footer">
+                <span class="alert alert-warning" ng-show="objectExists">An address with that name already exists. Please specify another name</span><br />
+                <button ng-if="user.Permissions.contains('CreateShipToAddress')" class="btn btn-primary pull-right" type="button" ng-click="setEmail();save();" ng-disabled="addressEdit.$invalid || ($parent.$parent.LineItem.Specs.Color.Value == null && $parent.$parent.LineItem.Product.Name == 'Polo Shirt')" id="451_btn_user">
+                    <i ng-show="addressEdit.$invalid || ($parent.$parent.LineItem.Specs.Color.Value == null && $parent.$parent.LineItem.Product.Name == 'Polo Shirt')" class="fa fa-warning"></i>
+                    Submit
+                </button>
+            </div>
         </div>
     </form>
 </div>
