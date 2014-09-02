@@ -36,7 +36,7 @@
                 </div>
                 <div>
                     <label style="color:black;" ng-show="address.Street2">Address Line 2</label>
-                    <input name="street2" class="form-control" type="text" ng-model="address.Street2" placeholder="Address Line 2" autocomplete="off" />
+                    <input ng-blur="setAddressName()" name="street2" class="form-control" type="text" ng-model="address.Street2" placeholder="Address Line 2" autocomplete="off" />
                     <i class="fa fa-map-marker"></i>
                 </div>
                 <div>

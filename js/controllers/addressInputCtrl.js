@@ -6,6 +6,9 @@ four51.app.controller('AddressInputCtrl', ['$scope', '$rootScope', '$location', 
                 $scope.address.AddressName = $scope.address.Street1;
                 $scope.user.ShipAddressName = $scope.address.Street1;
             }
+            if($scope.address.Street2){
+                $scope.user.ShipAddressName2 = $scope.address.Street2;
+            }
         };
 
         $scope.save = function() {
