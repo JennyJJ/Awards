@@ -13,10 +13,10 @@ four51.app.controller('AwardsCtrl', ['$scope', '$location', '$sce', 'User', 'Spe
 
         function saveOrder() {
             $scope.Order.LineItems.push($scope.LineItem);
+            $scope.Order.ExternalOrderDetailRecipients = $scope.user.Email;
             Order.submit($scope.Order,
                 function(data) {
                     $scope.Order = data;
-                    $scope.Order.ExternalOrderDetailRecipients = $scope.user.Email;
                 },
                 function(ex) {
                     $scope.error = ex.Message;
