@@ -28,12 +28,10 @@ box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);">
         <div style="background-color: white; border: 1px solid rgba(85, 85, 85, 0.7); border-radius: 5px;" class="wooMessage" ng-show="Order.BudgetAccountID">
             <div style="padding:10px" class="row">
                 <span class="col-xs-8 col-sm-8 col-md-8 col-lg-8"><h3>Awesome!</h3>
-                    <p>You've been awarded the <strong>{{LineItem.Product.Name}}</strong></p>
-                </span>
-                <img class="prodImg col-xs-4 col-sm-4 col-md-4 col-lg-4" ng-src="{{LineItem.Product.SmallImageUrl}}" />
-                <span class="col-xs-12">
+                    <p>You've been awarded the <strong>{{LineItem.Product.Name}}</strong></p><br/>
                     <p ng-bind-html="LineItem.Product.Description"></p>
                 </span>
+                <div class="prodImg col-xs-4 col-sm-4 col-md-4 col-lg-4"><productzoom lineitem="LineItem"></productzoom></div>
                 <!--<span><p></p></span>-->
                 <hr width="100%" height="60" style="border-color: transparent;">
             </div>
