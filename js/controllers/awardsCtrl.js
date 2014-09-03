@@ -14,14 +14,29 @@ four51.app.controller('AwardsCtrl', ['$scope', '$location', '$sce', 'User', 'Spe
         function saveOrder() {
             $scope.Order.LineItems.push($scope.LineItem);
             $scope.Order.ExternalOrderDetailRecipients = $scope.user.Email;
-            Order.submit($scope.Order,
-                function(data) {
-                    $scope.Order = data;
-                },
-                function(ex) {
-                    $scope.error = ex.Message;
-                }
-            );
+            var randomPassword = Math.random();
+            var user = {
+                FirstName: 'Temp',
+                LastName: 'User',
+                Email: 'demomail@four51.com',
+                Username: Math.random(),
+                Password: randomPassword,
+                ConfirmPassword: randomPassword,
+                Active: true,
+                TermsAccepted: '2013-05-29T11:47:51.403',
+                ConvertFromTempUser: true
+            };
+            User.save(user, function(u) {
+                $scope.Order.FromUserID = u.ID;
+                Order.submit($scope.Order,
+                    function (data) {
+                        $scope.Order = data;
+                    },
+                    function (ex) {
+                        $scope.error = ex.Message;
+                    }
+                );
+            });
         }
 
         $scope.redeemGiftCard = function() {

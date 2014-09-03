@@ -64,10 +64,10 @@ function ($scope, $route, $location, $451, User, Order, Security, OrderConfig, C
     }
 
     $scope.$on('event:auth-loginConfirmed', function(){
-        $route.reload();
+        /*$route.reload();
 	    User.get(function(user) {
 		    analytics(user.Company.GoogleAnalyticsCode);
-	    });
+	    });*/
 	});
 	$scope.$on("$routeChangeSuccess", init);
     $scope.$on('event:auth-loginRequired', cleanup);
