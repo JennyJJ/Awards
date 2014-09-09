@@ -6,7 +6,7 @@ Template: Howdy
 */
 
 .panel-footer {
-    background-color: transparent;
+    background-color: grey;
     border: 1px solid transparent;
     padding: 0px;
 }
@@ -27,8 +27,14 @@ Template: Howdy
 }
 
 body{
-    background-image:url('http://www.four51.com/Themes/Custom/509c0d4d-6e6d-401d-9597-1d9d2d342a56/D82Resource/images/Website-Graphic_610_004.jpg') !important;
+    background-image:url('http://www.four51.com/Themes/Custom/509c0d4d-6e6d-401d-9597-1d9d2d342a56/D82Resource/images/Website-Graphic_610_003.jpg') !important;
     background-size:cover;
+    height: 100%;
+    margin-bottom: 0;
+}
+
+html{
+    height: 100%;
 }
 
 .jetzoom{
