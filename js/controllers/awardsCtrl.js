@@ -3,6 +3,7 @@ four51.app.controller('AwardsCtrl', ['$scope', '$location', '$sce', 'User', 'Spe
             if (store.get('451Cache.Order')) {
                 $scope.Order = store.get('451Cache.Order');
                 $scope.LineItem = store.get('451Cache.LineItem');
+                ProductDisplayService.setProductViewScope($scope);
             }
             else {
                 $scope.Order = {};
