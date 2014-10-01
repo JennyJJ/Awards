@@ -84,7 +84,7 @@ four51.app.controller('AwardsCtrl', ['$scope', '$location', '$sce', 'User', 'Spe
         //Clear the Cache
         if($scope.Four51User.currentUser) {
             if ($scope.Four51User.currentUser.FirstName == 'Temp') {
-                $cookieStore.remove('user.PC');
+                $cookieStore.remove('user.awards');
                 $window.location.href= $window.location.pathname;
             }
         }
