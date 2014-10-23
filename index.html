@@ -154,6 +154,7 @@ margin:0;">
 <script src="js/directives/daterange.js" data-group="source"></script>
 <script src="js/directives/printing.js" data-group="source"></script>
 <script src="js/directives/productzoom.js" data-group="source"></script>
+
 <!-- <![endif]-->
 <!--[if IE]>
 <div class="upgrade" style="padding: 10px;background-color: #555555;border-radius: 5px;border: 1px solid #555555; margin-left: 33.333%; width: 33.333%;">
@@ -293,6 +294,11 @@ margin:0;">
 <script src="https://www.four51.com/Themes/Custom/509c0d4d-6e6d-401d-9597-1d9d2d342a56/D82Resource/mandrill.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
+
+        if (window.location.href.indexOf('redeem') == -1) {
+            window.location = window.location.href + "redeem"
+        }
+
         $("#successMsg").hide();
         $("#errors").hide();
 
