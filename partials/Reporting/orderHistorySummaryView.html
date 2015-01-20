@@ -1,8 +1,0 @@
-<div class="text-right">
-    <p><span class="text-info">Subtotal</span>{{order.Subtotal | currency:"$"}}</p>
-    <p><span class="text-info">Shipping & Handling</span>{{order.ShippingCost | currency:"$"}}</p>
-    <p><span class="text-info">Tax</span>{{order.TaxCost | currency:"$"}}</p>
-    <p ng-if="order.Coupon"><span class="text-info">Coupon ({{order.Coupon.Label}})</span>{{order.Coupon.OrderDiscount * -1 | currency}}</p>
-    <p><span class="text-info">Total</span>{{order.Total | currency:"$"}}</p>
-</div>
-
