@@ -27,7 +27,7 @@ Template: Howdy
 }
 
 body{
-    background-image:url('http://www.four51.com/Themes/Custom/509c0d4d-6e6d-401d-9597-1d9d2d342a56/D82Resource/images/Website-Graphic_610_003.jpg') !important;
+    background-image:url('images/Website-Graphic_610_003.jpg') !important;
     background-size:cover;
     height: 100%;
     margin-bottom: 0;
@@ -39,4 +39,38 @@ html{
 
 .jetzoom{
     max-width:100%;
+}
+
+.award {
+    background-color: white;
+    border: 1px solid rgba(85, 85, 85, 0.7);
+    border-radius: 5px;
+}
+
+.awardcontainer {
+    padding:10px;
+}
+
+.awardconfirm {
+    color:white;
+    text-shadow:2px 2px 8px #000000;
+}
+
+.awardcongrats {
+    color:white;
+    text-shadow:2px 2px 8px #000000;
+}
+
+.awardcongrats p {
+    text-align: center;
+}
+
+.awardbanner {
+    padding: 10px;
+    background-color: rgba(85, 85, 85, 0.8);
+    border-radius: 5px;
+    border:1px solid rgba(85, 85, 85, 0.7);
+    -webkit-box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);
 }

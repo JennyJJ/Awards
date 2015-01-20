@@ -13,14 +13,17 @@ four51.app.controller('AwardsCtrl', ['$scope', '$location', '$sce', 'User', 'Spe
 
         function saveOrder() {
             $scope.Order.LineItems.push($scope.LineItem);
-            Order.submit($scope.Order,
-                function(data) {
-                    $scope.Order = data;
-                },
-                function(ex) {
-                    $scope.error = ex.Message;
-                }
-            );
+            User.save($scope.user, function(user) {
+                $scope.user = user;
+                Order.submit($scope.Order,
+                    function(data) {
+                        $scope.Order = data;
+                    },
+                    function(ex) {
+                        $scope.error = ex.Message;
+                    }
+                );
+            });
         }
 
         $scope.redeemGiftCard = function() {

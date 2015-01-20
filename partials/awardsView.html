@@ -4,9 +4,7 @@
     <!--<span class="visible-sm">Small / Tablet Portrait</span>-->
     <!--<span class="visible-xs">Phone</span>-->
 
-    <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4" style="padding: 10px; background-color: rgba(85, 85, 85, 0.8); border-radius: 5px; border:1px solid rgba(85, 85, 85, 0.7); -webkit-box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);
-box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);">
+    <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4 awardbanner">
         <loadingindicator title="Please wait while we lookup your award code" ng-show="gettingAward" />
         <div ng-show="!Order.BudgetAccountID">
             <img width="100%" src="css/images/logo.png" />
@@ -22,11 +20,11 @@ box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);">
                 </div>
             </form>
         </div>
-        <div style="color:white;" ng-show="error" class="error">
+        <div ng-show="error" class="error">
             {{error}}
         </div>
-        <div style="background-color: white; border: 1px solid rgba(85, 85, 85, 0.7); border-radius: 5px;" class="wooMessage" ng-show="Order.BudgetAccountID">
-            <div style="padding:10px" class="row">
+        <div class="wooMessage award" ng-show="Order.BudgetAccountID">
+            <div style="awardcontainer" class="row">
                 <span class="col-xs-8 col-sm-8 col-md-8 col-lg-8"><h3>Awesome!</h3>
                     <p>You've been awarded the <strong>{{LineItem.Product.Name}}</strong></p><br/>
                     <p ng-bind-html="LineItem.Product.Description"></p>
@@ -41,13 +39,13 @@ box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);">
             </div>
         </div>
         <div class="wooMessage" ng-show="Order.BudgetAccountID && Order.Status != 'Open'">
-            <h3 style="color:white; text-shadow:2px 2px 8px #000000;">Please enter the address where you'd like your {{LineItem.Product.Name}} to be delivered</h3>
+            <h3 class="awardconfirm">Please enter the address where you'd like your {{LineItem.Product.Name}} to be delivered</h3>
             <addressinput user="user" address="Order.ShipAddress" />
         </div>
 
         <div class="wooMessage" ng-show="Order.Status == 'Open'">
-            <span class="col-md-12" style="color:white; text-shadow:2px 2px 8px #000000;"><h3 class="wooMessage" style="text-align: center;">Congratulations!</h3>
-            <p style="text-align: center;" >You will receive an email confirming your delivery at: {{user.Email}}. Your prize will be
+            <span class="col-md-12" class="awardcongrats"><h3 class="wooMessage" style="text-align: center;">Congratulations!</h3>
+            <p>You will receive an email confirming your delivery at: {{user.Email}}. Your prize will be
                 delivered to: {{user.ShipAddressName}} {{user.ShipAddressName2}} {{user.ShipAddressName3}}, {{user.ShipAddressName4}} {{user.ShipAddressName5}}</p></span>
         </div>
     </div>
