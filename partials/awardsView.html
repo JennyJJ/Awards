@@ -34,7 +34,6 @@
                         <img class="product-image-large img-responsive" ng-src="{{LineItem.Product.LargeImageUrl}}" />
                     </figure>
                 </div>
-                <!--<span><p></p></span>-->
                 <hr width="100%" height="60" style="border-color: transparent;">
             </div>
         </div>
@@ -45,8 +44,7 @@
 
         <div class="wooMessage" ng-show="Order.Status == 'Open'">
             <span class="col-md-12" class="awardcongrats"><h3 class="wooMessage" style="text-align: center;">Congratulations!</h3>
-            <p>You will receive an email confirming your delivery at: {{user.Email}}. Your prize will be
-                delivered to: {{user.ShipAddressName}} {{user.ShipAddressName2}} {{user.ShipAddressName3}}, {{user.ShipAddressName4}} {{user.ShipAddressName5}}</p></span>
+            <p>You will receive an email confirming your delivery at: {{user.Email}}.</p></span>
         </div>
     </div>
 </section>
