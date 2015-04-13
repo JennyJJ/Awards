@@ -8,7 +8,7 @@ Template: Howdy
 .panel-footer {
     background-color: grey;
     border: 1px solid transparent;
-    padding: 0px;
+    padding: 0;
 }
 
 .ng-pristine .ng-invalid .ng-invalid-required hr {
@@ -17,7 +17,7 @@ Template: Howdy
 }
 
 .prodImg {
-    flaot: right;
+    float: right;
 }
 
 #address_edit hr {
@@ -26,8 +26,8 @@ Template: Howdy
     background-color: transparent;
 }
 
-body{
-    background-image:url('images/Website-Graphic_610_003.jpg') !important;
+body {
+    background-image:url('images/background.jpg') !important;
     background-size:cover;
     height: 100%;
     margin-bottom: 0;
@@ -39,6 +39,35 @@ html{
 
 .jetzoom{
     max-width:100%;
+}
+
+.award-view {
+    position:relative;
+    top:40px;
+}
+
+.awardbanner {
+    padding: 10px;
+    background-color: rgba(250, 250, 250, 0.8);
+    border-radius: 5px;
+    border:1px solid rgba(250, 250, 250, 0.7);
+    -webkit-box-shadow: 2px 2px 15px 0px rgba(5,127,194,0.75);
+    -moz-box-shadow: 2px 2px 15px 0px rgba(5,127,194,0.75);
+    box-shadow: 2px 2px 15px 0px rgba(5,127,194,0.75);
+}
+
+.award-view img {
+    width:100%;
+    height:auto;
+    border:4px solid #fff;
+    border-radius:4px;
+}
+
+.award-view label {
+    color:#01aef0;
+    text-shadow:2px 2px 8px #fff;
+    font-size:1em;
+    line-height:1em;
 }
 
 .award {
@@ -66,12 +95,24 @@ html{
 	color: white;
 }
 
-.awardbanner {
+.banner {
     padding: 10px;
-    background-color: rgba(85, 85, 85, 0.8);
+    background-color: rgba(250, 250, 250, 0.8);
     border-radius: 5px;
-    border:1px solid rgba(85, 85, 85, 0.7);
-    -webkit-box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);
-    box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);
+    border:1px solid rgba(250, 250, 250, 0.7);
+    -webkit-box-shadow: 2px 2px 15px 0 rgba(5,127,194,0.75);
+    -moz-box-shadow: 2px 2px 15px 0 rgba(5,127,194,0.75);
+    box-shadow: 2px 2px 15px 0 rgba(5,127,194,0.75);
+}
+
+.btn-success {
+    background-color: #fff;
+    border-color: #ccc;
+    color: #01aef0;
+}
+
+.btn-success:hover {
+    background-color: #01aef0;
+    border-color: #01aef0;
+    color: #fff;
 }

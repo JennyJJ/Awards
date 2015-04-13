@@ -1,50 +1,46 @@
 <section class="award-view">
-    <!--<span class="visible-lg">Largest</span>-->
-    <!--<span class="visible-md">Medium / Tablet Landscape</span>-->
-    <!--<span class="visible-sm">Small / Tablet Portrait</span>-->
-    <!--<span class="visible-xs">Phone</span>-->
-
-    <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4 awardbanner">
-        <loadingindicator title="Please wait while we lookup your award code" ng-show="gettingAward" />
-        <div ng-show="!Order.BudgetAccountID">
-            <img width="100%" src="css/images/logo.png" />
-            <form name="giftcard_redeem" ng-submit="redeemGiftCard()" class="gift-card-redemption-view">
-                <div ng-hide="Order.BudgetAccountID" class="form-group view-form-icon">
-                    <div class="input-group">
-                        <label style="color:white;text-shadow:2px 2px 8px #000000;" >Enter your award code to reveal your prize...</label>
-                        <input class="form-control" type="text" ng-model="giftcard.Code" placeholder="Award Code" autocomplete="off"></input>
-                        <span class="input-group-btn">
-                            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i></button>
-                        </span>
+    <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+        <div class="banner">
+            <loadingindicator title="Please wait while we lookup your award code" ng-show="gettingAward" />
+            <div ng-show="!Order.BudgetAccountID">
+                <img class="img-responsive" src="css/images/BCBSNC-Center.JPG" />
+                <form name="giftcard_redeem" ng-submit="redeemGiftCard()" class="gift-card-redemption-view">
+                    <div ng-hide="Order.BudgetAccountID" class="form-group view-form-icon">
+                        <div class="input-group">
+                            <label>Enter your award code to reveal your prize...</label>
+                            <input class="form-control" type="text" ng-model="giftcard.Code" placeholder="Award Code" autocomplete="off"></input>
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-success"><i class="fa fa-check"></i></button>
+                            </span>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
-        <div ng-show="error" class="error">
-            {{error}}
-        </div>
-        <div class="wooMessage award" ng-show="Order.BudgetAccountID">
-            <div style="awardcontainer" class="row">
-                <span class="col-xs-8 col-sm-8 col-md-8 col-lg-8"><h3>Awesome!</h3>
-                    <p>You've been awarded the <strong>{{LineItem.Product.Name}}</strong></p><br/>
-                    <p ng-bind-html="LineItem.Product.Description"></p>
-                </span>
-                <div class="prodImg col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <figure>
-                        <img class="product-image-large img-responsive" ng-src="{{LineItem.Product.LargeImageUrl}}" />
-                    </figure>
-                </div>
-                <hr width="100%" height="60" style="border-color: transparent;">
+                </form>
             </div>
-        </div>
-        <div class="wooMessage" ng-show="Order.BudgetAccountID && Order.Status != 'Open'">
-            <h3 class="awardconfirm">Please enter the address where you'd like your {{LineItem.Product.Name}} to be delivered</h3>
-            <addressinput user="user" address="Order.ShipAddress" />
-        </div>
-
-        <div class="wooMessage" ng-show="Order.Status == 'Open'">
-            <span class="col-md-12 awardcongrats"><h3 class="wooMessage" style="text-align: center;">Congratulations!</h3>
-            <p>You will receive an email confirming your delivery at: {{user.Email}}.</p></span>
+            <div ng-show="error" class="error">
+                {{error}}
+            </div>
+            <div class="wooMessage award" ng-show="Order.BudgetAccountID">
+                <div style="awardcontainer" class="row">
+                    <span class="col-xs-8 col-sm-8 col-md-8 col-lg-8"><h3>Awesome!</h3>
+                        <p>You've been awarded the <strong>{{LineItem.Product.Name}}</strong></p><br/>
+                        <p ng-bind-html="LineItem.Product.Description"></p>
+                    </span>
+                    <div class="prodImg col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <figure>
+                            <img class="product-image-large img-responsive" ng-src="{{LineItem.Product.LargeImageUrl}}" />
+                        </figure>
+                    </div>
+                    <hr width="100%" height="60" style="border-color: transparent;">
+                </div>
+            </div>
+            <div class="wooMessage" ng-show="Order.BudgetAccountID && Order.Status != 'Open'">
+                <h3 class="awardconfirm">Please enter the address where you'd like your {{LineItem.Product.Name}} to be delivered</h3>
+                <addressinput user="user" address="Order.ShipAddress" />
+            </div>
+                <div class="wooMessage" ng-show="Order.Status == 'Open'">
+                <span class="col-md-12 awardcongrats"><h3 class="wooMessage" style="text-align: center;">Congratulations!</h3>
+                <p>You will receive an email confirming your delivery at: {{user.Email}}.</p></span>
+            </div>
         </div>
     </div>
 </section>
