@@ -1,8 +1,10 @@
 /*
 Static file for Theme changes
-Theme name: My SPA Theme
+Theme name: Awards - BCBSNC
 Version: 1.0
-Template: Howdy
+Template: Awards
+Disti: Proforma D82 - Proforma Whitecap Services
+Last Updated: 4/13/15
 */
 
 .panel-footer {
@@ -27,7 +29,7 @@ Template: Howdy
 }
 
 body {
-    background-image:url('images/background.jpg') !important;
+    background: url('images/background.jpg') #fff !important;
     background-size:cover;
     height: 100%;
     margin-bottom: 0;
@@ -80,9 +82,11 @@ html{
     padding:10px;
 }
 
-.awardconfirm {
-    color:white;
-    text-shadow:2px 2px 8px #000000;
+.award-view h3 {
+    color:#01aef0;
+    text-shadow:2px 2px 8px #fff;
+    font-size:1em;
+    line-height:1em;
 }
 
 .awardcongrats {
@@ -92,7 +96,7 @@ html{
 
 .awardcongrats p {
     text-align: center;
-	color: white;
+    color: white;
 }
 
 .banner {

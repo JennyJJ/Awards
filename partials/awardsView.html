@@ -1,8 +1,8 @@
 <section class="award-view">
-    <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+    <div class="col-md-4 col-md-offset-7">
         <div class="banner">
             <loadingindicator title="Please wait while we lookup your award code" ng-show="gettingAward" />
-            <div ng-show="!Order.BudgetAccountID">
+            <!--<div ng-show="!Order.BudgetAccountID">
                 <img class="img-responsive" src="css/images/BCBSNC-Center.JPG" />
                 <form name="giftcard_redeem" ng-submit="redeemGiftCard()" class="gift-card-redemption-view">
                     <div ng-hide="Order.BudgetAccountID" class="form-group view-form-icon">
@@ -15,12 +15,12 @@
                         </div>
                     </div>
                 </form>
-            </div>
+            </div>-->
             <div ng-show="error" class="error">
                 {{error}}
             </div>
             <div class="wooMessage award" ng-show="Order.BudgetAccountID">
-                <div style="awardcontainer" class="row">
+                <div class="row awardcontainer">
                     <span class="col-xs-8 col-sm-8 col-md-8 col-lg-8"><h3>Awesome!</h3>
                         <p>You've been awarded the <strong>{{LineItem.Product.Name}}</strong></p><br/>
                         <p ng-bind-html="LineItem.Product.Description"></p>
@@ -33,8 +33,11 @@
                     <hr width="100%" height="60" style="border-color: transparent;">
                 </div>
             </div>
-            <div class="wooMessage" ng-show="Order.BudgetAccountID && Order.Status != 'Open'">
-                <h3 class="awardconfirm">Please enter the address where you'd like your {{LineItem.Product.Name}} to be delivered</h3>
+            <!--<div class="wooMessage" ng-show="Order.BudgetAccountID && Order.Status != 'Open'">-->
+            <div class="wooMessage">
+                <img class="img-responsive" src="css/images/BCBSNC-Center.JPG" />
+                <h3 class="awardconfirm">Please enter your delivery address</h3>
+                <!--<h3 class="awardconfirm">Please enter the address where you'd like your {{LineItem.Product.Name}} to be delivered</h3>-->
                 <addressinput user="user" address="Order.ShipAddress" />
             </div>
                 <div class="wooMessage" ng-show="Order.Status == 'Open'">
