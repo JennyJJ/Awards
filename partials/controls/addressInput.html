@@ -3,60 +3,60 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6 view-form-icon">
                 <div ng-hide="true">
-                    <label style="color:white;">Address Name</label>
+                    <label>Address Name</label>
                     <input name="addressname" class="form-control" type="text" ng-model="address.AddressName" placeholder="Address Name" autocomplete="off" required />
                     <i class="fa fa-edit"></i>
                 </div>
                 <div>
-                    <label style="color:white;" ng-class="{required: address.IsBilling}">First Name</label>
+                    <label ng-class="{required: address.IsBilling}">First Name</label>
                     <input name="firstname" class="form-control" type="text" ng-model="address.FirstName" placeholder="First Name" autocomplete="off" required />
                     <i class="fa fa-user"></i>
                 </div>
                 <div>
-                    <label style="color:white;" ng-class="{required: address.IsBilling}">Last Name</label>
+                    <label ng-class="{required: address.IsBilling}">Last Name</label>
                     <input name="lastname" class="form-control" type="text" ng-model="address.LastName" placeholder="Last Name" autocomplete="off" required />
                     <i class="fa fa-user"></i>
                 </div>
                 <div>
-                    <label style="color:white;">Phone</label>
+                    <label>Phone</label>
                     <input name="phone" class="form-control" type="text" ng-model="address.Phone" autocomplete="off" ui-mask="(999) 999-9999" required />
                     <i class="fa fa-phone"></i>
                 </div>
                 <div>
-                    <label style="color:white;">Email</label>
+                    <label>Email</label>
                     <input name="Email" class="form-control" type="email" ng-model="user.Email" placeholder="Email" autocomplete="off" required />
                     <i class="fa fa-envelope"></i>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 view-form-icon">
                 <div>
-                    <label style="color:white;">Home Address</label>
+                    <label>Home Address</label>
                     <input ng-blur="setAddressName()" name="street1" class="form-control" type="text" ng-model="address.Street1" placeholder="Address Line 1" autocomplete="off" required />
                     <i class="fa fa-map-marker"></i>
                 </div>
                 <div>
-                    <label style="color:white;" ng-show="address.Street2">Address Line 2</label>
+                    <label ng-show="address.Street2">Address Line 2</label>
                     <input ng-blur="setAddressName()" name="street2" class="form-control" type="text" ng-model="address.Street2" placeholder="Address Line 2" autocomplete="off" />
                     <i class="fa fa-map-marker"></i>
                 </div>
                 <div>
-                    <label style="color:white;">City</label>
+                    <label>City</label>
                     <input ng-blur="setAddressName()" name="city" class="form-control" type="text" ng-model="address.City" placeholder="City" autocomplete="off" required />
                     <i class="fa fa-map-marker"></i>
                 </div>
                 <div ng-show="!hasStates()">
-                    <label style="color:white;">State</label>
+                    <label>State</label>
                     <input ng-blur="setAddressName()" ng-show="!hasStates()" class="form-control" type="text" ng-model="address.State" placeholder="State" autocomplete="off" ng-required="!hasStates()" />
                     <i class="fa fa-map-marker"></i>
                 </div>
                 <div ng-show="hasStates()" ng-class="{'view-form-select': !address.State, '': address.State }">
-                    <label style="color:white;">State</label>
+                    <label>State</label>
                     <select ng-blur="setAddressName()" ng-show="hasStates()" class="form-control" ng-options="state.value as state.label for state in states | filter:country" ng-model="address.State" placeholder="State" ng-required="hasStates()">
                     </select>
                     <i class="fa fa-map-marker"></i>
                 </div>
                 <div>
-                    <label style="color:white;">Zip</label>
+                    <label>Zip</label>
                     <input ng-blur="setAddressName()" name="zip" class="form-control" type="text" ng-model="address.Zip" placeholder="Zip" autocomplete="off" ng-required="hasStates()" />
                     <i class="fa fa-map-marker"></i>
                 </div>
