@@ -115,6 +115,39 @@ body {
     border-color:#ccc;
 }
 
+input.ng-invalid,
+textarea.ng-invalid,
+select.ng-invalid,
+input.ng-invalid:invalid,
+textarea.ng-invalid:invalid,
+select.ng-invalid:invalid {
+    border-color:#ccc;
+    box-shadow:none;
+}
+
+
+input.ng-invalid:focus,
+textarea.ng-invalid:focus,
+select.ng-invalid:focus,
+input.ng-invalid:invalid:focus,
+textarea.ng-invalid:invalid:focus,
+select.ng-invalid:invalid:focus,
+input.ng-invalid.ng-invalid:focus,
+textarea.ng-invalid.ng-invalid:focus,
+select.ng-invalid.ng-invalid:focus,
+input.ng-invalid:invalid.ng-invalid:focus,
+textarea.ng-invalid:invalid.ng-invalid:focus,
+select.ng-invalid:invalid.ng-invalid:focus,
+input.ng-invalid:invalid:focus,
+textarea.ng-invalid:invalid:focus,
+select.ng-invalid:invalid:focus,
+input.ng-invalid:invalid:invalid:focus,
+textarea.ng-invalid:invalid:invalid:focus,
+select.ng-invalid:invalid:invalid:focus {
+    border-color: #ccc;
+    box-shadow:none;
+}
+
 .award-address label {
     font-weight:normal;
 }
