@@ -23,7 +23,7 @@ body {
     width:2000px;
     height:1082px;
     max-height: calc(100vh - 20px);
-    max-width:calc(100% - 0.6em);
+    max-width:calc(100%);
     background-color:#fff;
 }
 
