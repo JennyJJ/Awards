@@ -1,4 +1,4 @@
-<section class="award-container" ng-class="{'view1': !Order.BudgetAccountID, 'view2': Order.BudgetAccountID, 'view3': Order.BudgetAccountID && Order.Status != 'Open'}">
+<section class="award-container" ng-class="{'view1': !Order.BudgetAccountID, 'view2': Order.BudgetAccountID && Order.Status != 'Open', 'view3': Order.BudgetAccountID && Order.Status == 'Open'}">
     <div class="col-xs-12 col-md-5 col-md-offset-6 col-lg-3 col-lg-offset-8">
         <div class="entry-container">
             <img class="img-responsive" src="css/images/BCBSNC.jpg" />
@@ -44,7 +44,7 @@
             <!--view 2b-->
 
             <!--view 2c-->
-            <div class="award-confirmation" ng-show="Order.Status == 'Open'">
+            <div class="award-confirmation" ng-show="Order.BudgetAccountID && Order.Status == 'Open'">
                 <p class="ng-binding">Thank you. An email to confirm your prize delivery will be sent to you at {{user.Email}}.</p>
                 <h4>What does it mean to Live Fearless?</h4>
                 <p>It means working hard, playing hard, taking it all in and making the most of life. Being the best you.</p>
