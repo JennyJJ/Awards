@@ -66,9 +66,9 @@
         <div class="row">
             <div>
                 <span class="alert alert-warning" ng-show="objectExists">An address with that name already exists. Please specify another name</span><br />
-                <button ng-if="user.Permissions.contains('CreateShipToAddress')" class="btn btn-primary pull-right" type="button" ng-click="setEmail();save();" ng-disabled="addressEdit.$invalid || ($parent.$parent.LineItem.Specs.Color.Value == null && $parent.$parent.LineItem.Product.Name == 'Polo Shirt') || ($parent.$parent.LineItem.Specs.Size.Value == null && $parent.$parent.LineItem.Product.Name == 'Polo Shirt')" id="451_btn_user">
-                    <i ng-show="addressEdit.$invalid || ($parent.$parent.LineItem.Specs.Color.Value == null && $parent.$parent.LineItem.Product.Name == 'Polo Shirt') || ($parent.$parent.LineItem.Specs.Size.Value == null && $parent.$parent.LineItem.Product.Name == 'Polo Shirt')" class="fa fa-warning"></i>
-                    Submit
+                <button class="btn btn-success pull-right" type="button" ng-click="setEmail();save();" ng-disabled="addressEdit.$invalid" id="451_btn_user">
+                <i ng-show="addressEdit.$invalid" class="fa fa-warning"></i>
+                Submit
                 </button>
             </div>
         </div>
