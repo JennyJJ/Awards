@@ -65,6 +65,10 @@ four51.app.controller('AwardsCtrl', ['$scope', '$location', '$sce', 'User', 'Spe
         $scope.$on('event:AddressSaved', function(event, address) {
             $scope.Order.ShipAddressID = address.ID;
             $scope.LineItem.ShipAddressID = address.ID;
+
+            $scope.user.FirstName = address.FirstName;
+            $scope.user.LastName = address.LastName;
+
             saveOrder();
         });
     }]);
