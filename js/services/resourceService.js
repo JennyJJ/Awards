@@ -247,6 +247,7 @@ four51.app.factory('Resources', function() {
         { "label": "Zimbabwe", "value": "ZW"}
     ];
     var states = [
+        { "label": "State", "value": ""},
         { "label": "Alabama", "value": "AL", "country": "US" },
         { "label": "Alaska", "value": "AK", "country": "US" },
         { "label": "Arizona", "value": "AZ", "country": "US" },

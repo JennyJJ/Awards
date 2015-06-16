@@ -1,10 +1,20 @@
-four51.app.controller('AwardsCtrl', ['$scope', '$location', '$sce', 'User', 'SpendingAccount', 'Order', 'Address', 'GiftCard', 'ProductDisplayService',
-    function ($scope, $location, $sce, User, SpendingAccount, Order, Address, GiftCard, ProductDisplayService) {
+four51.app.controller('AwardsCtrl', ['$scope', '$location', '$sce', 'User', 'SpendingAccount', 'Order', 'Address', 'AddressList', 'GiftCard', 'ProductDisplayService',
+    function ($scope, $location, $sce, User, SpendingAccount, Order, Address, AddressList, GiftCard, ProductDisplayService) {
         $scope.Order = {};
         $scope.Order.LineItems = [];
         $scope.LineItem = {};
         $scope.Order.BudgetAccount = {};
         $scope.Order.ShipAddress = { Country: 'US', IsShipping: true, IsBilling: false };
+        $scope.Order.BillAddress = { Country: 'US', IsShipping: false, IsBilling: true };
+
+        AddressList.clear();
+        AddressList.billing(function(list) {
+            $scope.billaddresses = list;
+            if (list.length == 1 && !$scope.Order.BillAddressID) {
+                $scope.Order.BillAddressID = list[0].ID;
+                $scope.Order.BillAddress = list[0];
+            }
+        });
 
         function setupOrder() {
             $scope.Order.BudgetAccountID = $scope.BudgetAccount.ID;

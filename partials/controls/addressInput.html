@@ -35,7 +35,7 @@
                     <i class="fa fa-map-marker"></i>
                 </div>
                 <div>
-                    <label ng-show="address.Street2">Address Line 2</label>
+                    <label ng-show="address.Street2">Home Address Line 2</label>
                     <input ng-blur="setAddressName()" name="street2" class="form-control" type="text" ng-model="address.Street2" placeholder="Address Line 2" autocomplete="off" />
                     <i class="fa fa-map-marker"></i>
                 </div>
@@ -51,7 +51,8 @@
                 </div>
                 <div ng-show="hasStates()" ng-class="{'view-form-select': !address.State, '': address.State }">
                     <label>State</label>
-                    <select ng-blur="setAddressName()" ng-show="hasStates()" class="form-control" ng-options="state.value as state.label for state in states | filter:country" ng-model="address.State" placeholder="State" ng-required="hasStates()">
+                    <select ng-blur="setAddressName()" ng-show="hasStates()" class="form-control" ng-options="state.value as state.label for state in states | filter:country" ng-model="address.State" ng-required="hasStates()">
+                        <option value="" selected></option>
                     </select>
                     <i class="fa fa-map-marker"></i>
                 </div>
