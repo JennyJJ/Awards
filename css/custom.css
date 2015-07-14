@@ -4,7 +4,8 @@ Theme name: Awards - BCBSNC
 Version: 1.0
 Template: Awards
 Disti: Proforma D82 - Proforma Whitecap Services
-Last Updated: 6/16/15
+Dev: Jen
+Last Updated: 7/14/15
 */
 
 
@@ -121,7 +122,8 @@ select.ng-invalid,
 input.ng-invalid:invalid,
 textarea.ng-invalid:invalid,
 select.ng-invalid:invalid {
-    border-color:#ccc;
+    /*border-color:#ccc;*/
+    border-color:#d9534f;
     box-shadow:none;
 }
 
@@ -144,7 +146,8 @@ select.ng-invalid:invalid:focus,
 input.ng-invalid:invalid:invalid:focus,
 textarea.ng-invalid:invalid:invalid:focus,
 select.ng-invalid:invalid:invalid:focus {
-    border-color: #ccc;
+    /*border-color:#ccc;*/
+    border-color:#d9534f;
     box-shadow:none;
 }
 
