@@ -116,13 +116,22 @@ body {
     border-color:#ccc;
 }
 
+.award-code input.ng-invalid,
+.award-code input.ng-invalid:invalid,
+.award-code input.ng-invalid:focus,
+.award-code input.ng-invalid.ng-invalid:focus,
+.award-code input.ng-invalid:invalid.ng-invalid:focus,
+.award-code input.ng-invalid:invalid:focus,
+.award-code input.ng-invalid:invalid:invalid:focus {
+    border-color:#ccc;
+}
+
 input.ng-invalid,
 textarea.ng-invalid,
 select.ng-invalid,
 input.ng-invalid:invalid,
 textarea.ng-invalid:invalid,
 select.ng-invalid:invalid {
-    /*border-color:#ccc;*/
     border-color:#d9534f;
     box-shadow:none;
 }
@@ -146,7 +155,6 @@ select.ng-invalid:invalid:focus,
 input.ng-invalid:invalid:invalid:focus,
 textarea.ng-invalid:invalid:invalid:focus,
 select.ng-invalid:invalid:invalid:focus {
-    /*border-color:#ccc;*/
     border-color:#d9534f;
     box-shadow:none;
 }
